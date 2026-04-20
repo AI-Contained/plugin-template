@@ -4,7 +4,7 @@ from fastmcp import FastMCP
 from fastmcp.client import Client
 from fastmcp.client.elicitation import ElicitResult
 
-from ai_contained.plugins.helloworld import register
+from ai_contained.plugins.template import register
 
 
 @pytest.fixture

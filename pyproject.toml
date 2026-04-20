@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "ai-contained-plugin-helloworld"  # TODO: rename to ai-contained-plugin-<yourplugin>
+name = "ai-contained-plugin-template"  # TODO: rename to ai-contained-plugin-<yourplugin>
 version = "0.1.0"
 description = "Hello World adventure game plugin for AI-Contained"  # TODO: update
 requires-python = ">=3.12"
@@ -27,7 +27,7 @@ markers = [
 ]
 
 [project.entry-points."ai_contained.plugins"]
-helloworld = "ai_contained.plugins.helloworld:register"  # TODO: rename to <yourplugin> = "ai_contained.plugins.<yourplugin>:register"
+template = "ai_contained.plugins.template:register"  # TODO: rename to <yourplugin> = "ai_contained.plugins.<yourplugin>:register"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/ai_contained"]
