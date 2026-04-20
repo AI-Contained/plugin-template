@@ -16,6 +16,23 @@ Click **"Use this template"** on GitHub to create a new plugin repo, then:
 
 - **`play_adventure`** - An interactive choose-your-own-adventure game using MCP elicitation
 
+## Resources
+
+- **`adventure://stats`** - Current player stats as JSON (`health`, `adventures`). Updated after each game.
+
+## Prompts
+
+- **`adventure_recap`** - Instructs the LLM to read `adventure://stats` and generate a dramatic story recap.
+  > Note: Prompts are not currently discoverable in claude-cli but are accessible via the MCP protocol directly.
+
+## Usage
+
+Once connected via an MCP client (e.g. claude-cli):
+
+1. **Play the game:** `"Play the adventure game"`
+2. **Check your stats:** `"Read adventure://stats"`
+3. **Get a recap:** `"Give me a recap of my adventure"`
+
 ## Installation
 
 ### Local Development
