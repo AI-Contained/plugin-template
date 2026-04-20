@@ -36,11 +36,16 @@ def register(mcp):
             scene = transitions[scene][result.data]
 
         stats = await ctx.get_state("stats") or {"health": 100, "adventures": 0}
-        stats["health"] = 100 if scene == "win" else 0
+
+        if scene == "win":
+            stats["health"] = min(100, stats["health"] + 10)
+        else:
+            stats["health"] = max(0, stats["health"] - 10)
+
         stats["adventures"] += 1
         await ctx.set_state("stats", stats)
 
-        return scenes[scene]
+        return f"{scenes[scene]} Current stats: adventure://stats"
 
     # --- Resource ---
 
@@ -50,6 +55,8 @@ def register(mcp):
         return await ctx.get_state("stats") or {"health": 100, "adventures": 0}
 
     # --- Prompt ---
+    # NOTE: Prompts don't appear to be supported/discoverable in claude-cli.
+    # The prompt is registered and accessible via the MCP protocol directly.
 
     @mcp.prompt
     def adventure_recap() -> str:
