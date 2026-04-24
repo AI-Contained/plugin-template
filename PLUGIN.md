@@ -1,4 +1,4 @@
-# plugin-template
+# ai-contained-provider-template
 
 A hello world plugin for [AI-Contained](https://github.com/AI-Contained) demonstrating the plugin architecture with a choose-your-own-adventure game.
 
@@ -44,7 +44,7 @@ pip install -e ".[dev]" --break-system-packages
 ### Production
 
 ```bash
-pip install "ai-contained-plugin-template @ git+https://github.com/AI-Contained/plugin-template.git@main"
+pip install "ai-contained-plugin-template @ git+https://github.com/AI-Contained/ai-contained-provider-template.git@main"
 ```
 
 ## Running Tests
