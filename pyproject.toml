@@ -3,9 +3,9 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "ai-contained-plugin-template"  # TODO: rename to ai-contained-plugin-<yourplugin>
-version = "0.1.0"
-description = "Hello World adventure game plugin for AI-Contained"  # TODO: update
+name = "ai-contained-provider-template"  # TODO: rename to ai-contained-provider-<yourprovider>
+version = "0.0.2"
+description = "Hello World adventure game provider for AI-Contained"  # TODO: update
 requires-python = ">=3.12"
 dependencies = [
     "ai-contained-core-mcp",
@@ -26,8 +26,8 @@ markers = [
     "focus: run only focused tests (use with -m focus)",
 ]
 
-[project.entry-points."ai_contained.plugins"]
-template = "ai_contained.plugins.template:register"  # TODO: rename to <yourplugin> = "ai_contained.plugins.<yourplugin>:register"
+[project.entry-points."ai_contained.provider"]
+template = "ai_contained.provider.template:register"  # TODO: rename to <yourprovider> = "ai_contained.provider.<yourprovider>:register"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/ai_contained"]
