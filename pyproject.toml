@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ai-contained-provider-template"  # TODO: rename to ai-contained-provider-<yourprovider>
-version = "0.1.0"
+version = "0.0.2"
 description = "Hello World adventure game provider for AI-Contained"  # TODO: update
 requires-python = ">=3.12"
 dependencies = [
@@ -26,7 +26,7 @@ markers = [
     "focus: run only focused tests (use with -m focus)",
 ]
 
-[project.entry-points."ai-contained.provider"]
+[project.entry-points."ai_contained.provider"]
 template = "ai_contained.provider.template:register"  # TODO: rename to <yourprovider> = "ai_contained.provider.<yourprovider>:register"
 
 [tool.hatch.build.targets.wheel]
