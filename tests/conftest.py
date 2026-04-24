@@ -2,7 +2,7 @@ import pytest
 from fastmcp import FastMCP
 from fastmcp.client.elicitation import ElicitResult
 
-from ai_contained.plugins.template import register
+from ai_contained.provider.template import register
 
 
 @pytest.fixture
