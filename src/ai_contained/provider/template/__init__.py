@@ -1,8 +1,8 @@
 """Template plugin for AI-Contained."""
-from fastmcp import Context
+from fastmcp import Context, FastMCP
 
 
-def register(mcp):
+def register(mcp: FastMCP) -> None:
     """Register tools, resources and prompts with the MCP server."""
 
     scenes = {
@@ -21,7 +21,7 @@ def register(mcp):
 
     # --- Tool ---
 
-    @mcp.tool
+    @mcp.tool()
     async def play_adventure(ctx: Context) -> str:
         """Play a short choose-your-own-adventure game."""
         scene = "forest"
@@ -50,7 +50,7 @@ def register(mcp):
     # --- Resource ---
 
     @mcp.resource("adventure://stats", mime_type="application/json")
-    async def adventure_stats(ctx: Context) -> dict:
+    async def adventure_stats(ctx: Context) -> dict[str, int]:
         """Current player stats."""
         return await ctx.get_state("stats") or {"health": 100, "adventures": 0}
 
@@ -58,7 +58,7 @@ def register(mcp):
     # NOTE: Prompts don't appear to be supported/discoverable in claude-cli.
     # The prompt is registered and accessible via the MCP protocol directly.
 
-    @mcp.prompt
+    @mcp.prompt()
     def adventure_recap() -> str:
         """Generate a recap based on the player's stats."""
         return (
