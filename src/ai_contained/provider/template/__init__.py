@@ -6,7 +6,6 @@ from fastmcp import Context, FastMCP
 
 def register(mcp: FastMCP) -> None:
     """Register tools, resources and prompts with the MCP server."""
-
     scenes = {
         "forest": "🌲 You're in a dark forest. Paths lead left and right.",
         "cave":   "🕯 You enter a cave. It's dark. A glowing chest sits in the corner.",
@@ -53,7 +52,7 @@ def register(mcp: FastMCP) -> None:
 
     @mcp.resource("adventure://stats", mime_type="application/json")
     async def adventure_stats(ctx: Context) -> dict[str, int]:
-        """Current player stats."""
+        """Return current player stats."""
         return await ctx.get_state("stats") or {"health": 100, "adventures": 0}
 
     # --- Prompt ---
