@@ -1,4 +1,6 @@
 """Template plugin for AI-Contained."""
+from typing import cast
+
 from fastmcp import Context, FastMCP
 
 
@@ -28,12 +30,12 @@ def register(mcp: FastMCP) -> None:
 
         while scene not in ("win", "lose"):
             choices = list(transitions[scene].keys())
-            result = await ctx.elicit(message=scenes[scene], response_type=choices)
+            result = await ctx.elicit(message=scenes[scene], response_type=choices)  # type: ignore[arg-type]  # https://github.com/python/mypy/issues/11613
 
             if result.action != "accept":
                 return "Adventure abandoned."
 
-            scene = transitions[scene][result.data]
+            scene = transitions[scene][cast(str, result.data)]
 
         stats = await ctx.get_state("stats") or {"health": 100, "adventures": 0}
 
