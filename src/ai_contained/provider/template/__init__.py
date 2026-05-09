@@ -1,4 +1,5 @@
 """Template plugin for AI-Contained."""
+
 from typing import cast
 
 from fastmcp import Context, FastMCP
@@ -8,16 +9,16 @@ def register(mcp: FastMCP) -> None:
     """Register tools, resources and prompts with the MCP server."""
     scenes = {
         "forest": "🌲 You're in a dark forest. Paths lead left and right.",
-        "cave":   "🕯 You enter a cave. It's dark. A glowing chest sits in the corner.",
-        "river":  "🌊 You reach a river. A small boat is tied to the bank.",
-        "win":    "🏆 You found the treasure! You win!",
-        "lose":   "💀 You slipped and fell into the river. Game over!",
+        "cave": "🕯 You enter a cave. It's dark. A glowing chest sits in the corner.",
+        "river": "🌊 You reach a river. A small boat is tied to the bank.",
+        "win": "🏆 You found the treasure! You win!",
+        "lose": "💀 You slipped and fell into the river. Game over!",
     }
 
     transitions = {
-        "forest": {"go left": "cave",  "go right": "river"},
-        "cave":   {"open chest": "win", "go back": "forest"},
-        "river":  {"take boat": "win",  "jump across": "lose", "go back": "forest"},
+        "forest": {"go left": "cave", "go right": "river"},
+        "cave": {"open chest": "win", "go back": "forest"},
+        "river": {"take boat": "win", "jump across": "lose", "go back": "forest"},
     }
 
     # --- Tool ---
